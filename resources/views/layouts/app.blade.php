@@ -94,7 +94,7 @@
 
                 <ul class="list-group">
                   <li class="list-group-item">
-                    <a href="#">Posts</a>
+                    <a href="{{ route('posts.index')}}">Posts</a>
                   </li>
                   <li class="list-group-item">
                     <a href="{{ route('categories.index') }}">Categories</a>
@@ -109,13 +109,18 @@
               </div>
             </div>
 
-          </div>
+
 
           @else
               @yield('content')
           @endauth
         </main>
 
-
+  </div>
 </body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+@yield('scripts')
+
 </html>

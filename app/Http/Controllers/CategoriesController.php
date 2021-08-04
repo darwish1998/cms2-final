@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+//Remember well 
 use App\Http\Requests\Categories\CreateCategoryRequest;
 use App\Http\Requests\Categories\UpdateCategoriesRequest;
 
@@ -55,7 +56,7 @@ class CategoriesController extends Controller
         [
           'name'=> $request->name
         ]);
-        session()->flash('success','category added susseccessfully');
+        session()->flash('success','category added successfully');
         return redirect(route('categories.index'));
 
     }
@@ -97,7 +98,7 @@ class CategoriesController extends Controller
           'name'=> $request->name
         ]);
 
-        session()->flash('success','Category updated susseccessfully');
+        session()->flash('success','Category updated successfully');
 
         return redirect(route('categories.index'));
     }
@@ -108,8 +109,13 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
         //
+        $category-> delete();
+
+        session()->flash('success','Category deleted successfully');
+
+        return redirect(route('categories.index'));
     }
 }
